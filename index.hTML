@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tienda de ropa moderna y de calidad.">
+    <title>Moda del Barrio</title>
+    <link rel="stylesheet" href="estilos.css"-
+  </head>
+
+  <body>
+
+    <header>
+      <center>
+      <h1>MODA DEL AÑO</h1>
+      <h2><p>Ropa moderna y de calidad para todos</p></h2>
+      </center>
+
+      <nav>
+        <ul>
+        <h2><li><a href="#productos">Productos</a></li></h2>
+        <h2><li><a href="#precios">Precios</a></li></ul></h2>
+        <h2><li><a href="#pedido">Hacer un pedido</a></li></h2>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <center>
+
+      <section id="productos">
+        <h1>Nuestros productos</h1>
+        </center>
+
+        
+          <article>
+          <h3>Poleras</h3>
+          <img src="polera1.jpg" alt="poleras">
+          <p>Poleras modernas disponibles en diferentes colores y tallas.</p>
+          <fieldset>
+          <p><b>precio:</b>bs 50 </p>
+          </fieldset>
+        </article>
+      
+
+        <article>
+          <h2>Pantalones</h2>
+          <img src="pantalon.jpg" alt="pantalones">
+          <p>Pantalones cómodos y modernos para diferentes ocasiones.</p>
+        </article>
+
+        <article>
+          <h2>Polerones</h2>
+          <img src="poleron1.jpg" alt="poleron1">
+          <p>Polerones abrigados y cómodos para los días fríos.</p>
+        </article>
+
+        <article>
+          <h2>Vestidos</h2>
+          <img src="vestidos 1.jpg" alt="vestidos">
+          <p>Vestidos modernos para ocasiones especiales y uso diario.</p>
+          <fieldset>
+          <p><b>precio:</b> bs 30</p>
+          </fieldset>
+        </article>
+      </section>
+
+      <section id="precios">
+        <h2>Precios y disponibilidad</h2>
+
+        <table>
+          <caption>Precios por prenda y disponibilidad</caption>
+
+          <thead>
+            <tr>
+              <th scope="col">Prenda</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Disponible</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Polera</td>
+              <td>Bs: 50</td>
+              <td><b>S,</b><b>M,</b><b>L</b><b>XL</b></td>
+            </tr>
+
+            <tr>
+              <td>Pantalón</td>
+              <td>Bs 120</td>
+              <td>36, 38, 40, 42</td>
+            </tr>
+
+            <tr>
+              <td>Polerón</td>
+              <td>Bs 150</td>
+              <td>S, M, L, XL</td>
+            </tr>
+
+            <tr>
+              <td>Vestido</td>
+              <td>Bs 180</td>
+              <td>S, M, L</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <figure>
+          <img src="ropa.jpg"
+               alt="Exhibición de prendas de ropa en una tienda"
+               width="600"
+               height="400">
+
+          <figcaption>
+            Algunas de nuestras prendas disponibles.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="pedido">
+        <h2>Hacer un pedido</h2>
+
+        <form action="/pedido" method="post">
+
+          <fieldset>
+            <legend>Tus datos</legend>
+
+            <p>
+              <label for="nombre">Nombre completo</label>
+              <input type="text"
+                     id="nombre"
+                     name="nombre"
+                     autocomplete="name"
+                     required>
+            </p>
+
+            <p>
+              <label for="email">Correo electrónico</label>
+              <input type="email"
+                     id="email"
+                     name="email"
+                     autocomplete="email"
+                     required>
+            </p>
+
+            <p>
+              <label for="telefono">Teléfono</label>
+              <input type="tel"
+                     id="telefono"
+                     name="telefono"
+                     autocomplete="tel"
+                     pattern="[0-9]{7,8}"
+                     title="Ingresa un número de teléfono de 7 u 8 dígitos">
+            </p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Tu compra</legend>
+
+            <p>
+              <label for="producto">Prenda</label>
+
+              <select id="producto" name="producto" required>
+                <option value="">Elige una prenda</option>
+                <option value="polera">Polera</option>
+                <option value="pantalon">Pantalón</option>
+                <option value="poleron">Polerón</option>
+                <option value="vestido">Vestido</option>
+              </select>
