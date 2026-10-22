@@ -75,5 +75,21 @@ En conclusión, el diseño de mode del añocombina una estructura semántica en 
 ![Escritorio](C:\Users\UMSA-COLQUENCHA\Documents\proyecto_1\captura de pantalla (13).png)
 ![Móvil 375px](ruta/a/captura-movil.png) DESPUES, PROXIMA SEMANA
 
-##" Lo más difícil
-2["el problema que tuve fue en el colocado de las imegenes que no aparecia en el proyecto" "lo resolvi guardando el codigo y volvi a mi proyectoy ya se avia colocado la imagen"]
+## Lo más difícil
+["El problema principal fue la integración de los eventos y la correcta conexión entre los archivos JavaScript, así como la visualización dinámica de las imágenes de los productos desde los datos. Se resolvió estructurando el renderizado dinámico y conectando los eventos al catálogo."]
+## Lap 2
+
+En esta etapa organizamos el proyecto de forma modular, donde cada archivo cumple una función específica:
+
+- **`index.html`:** Estructura de la página, contenedor dinámico (`#lista-productos`), controles de búsqueda, filtros y formulario de pedidos. Carga los scripts en el orden correcto de dependencias.
+- **`estilos.css`:** Maquetación con CSS Grid para las tarjetas, variables de color `:root` y estilos para estados interactivos (`.activo` y `.agotado`).
+- **`app.js`:** Datos base del negocio (nombre, año), variables de stock, tipos de datos primitivos y actualización del aviso en el encabezado (`#aviso-stock`).
+- **`funciones.js`:** Funciones de cálculo comercial (`calcularTotal`, `aplicarDescuento`, `conImpuesto`) y closure con `prendasVendidas()` para contar las ventas.
+- **`datos.js`:** Arreglo `productos` con fotos, precios, stock y categorías; métodos de búsqueda y ordenamiento (`filter`, `map`, `reduce`), y clases de productos.
+- **`render.js`:** Generación dinámica de tarjetas con `document.createElement()` (`crearTarjeta`) y pintado en el catálogo (`render`).
+- **`eventos.js`:** Controlador principal que conecta todo: buscador en tiempo real, botones de filtro por categoría y validación del formulario con cálculo del monto total.
+
+### Lo que hicimos hoy:
+- **`index.html`:** Añadimos los elementos interactivos que faltaban: el buscador (`#buscador`), los botones de categorías (`#filtros`), el contador de productos (`#resultado`), y completamos el formulario con campos de cantidad, fecha de entrega y botón de envío. También corregimos la llamada al archivo (`eventos.js`).
+- **`eventos.js`:** Activamos la interactividad: búsqueda en tiempo real (con soporte para tildes y mayúsculas), filtro por categoría mediante delegación de eventos (`click`), validación de teléfono boliviano y fecha, y el cálculo del total a pagar integrando las funciones de `funciones.js` y el catálogo de `datos.js`.
+- **`estilos.css`:** Corregimos el color del texto de los botones a blanco (`#fff`) para que sean legibles y aseguramos la presentación visual de los controles y botones activos.

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tienda de ropa moderna y de calidad.">
+    <title>Moda del Año</title>
+    <link rel="stylesheet" href="estilos.css">
+  </head>
+
+  <body>
+
+    <header>
+      <h1>MODA DEL AÑO</h1>
+      <p>Ropa moderna y de calidad para todos</p>
+      <p id="aviso-stock"></p>
+
+      <nav>
+        <ul>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#precios">Precios</a></li>
+          <li><a href="#pedido">Hacer un pedido</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+
+      <section id="productos">
+        <h2>Nuestros productos</h2>
+
+        <div class="controles">
+          <label for="buscador" class="visualmente-oculto">Buscar prendas</label>
+          <input type="search" id="buscador" placeholder="Buscar prenda...">
+
+          <div id="filtros">
+            <button type="button" class="activo" data-categoria="todos">Todos</button>
+            <button type="button" data-categoria="poleras">Poleras</button>
+            <button type="button" data-categoria="pantalon masculino">Pantalón masculino</button>
+            <button type="button" data-categoria="polerones">Polerones</button>
+            <button type="button" data-categoria="vestidos">Vestidos</button>
+            <button type="button" data-categoria="trajes">Trajes</button>
+            <button type="button" data-categoria="chaquetas">Chaquetas</button>
+            <button type="button" data-categoria="pantalon femenino">Pantalón femenino</button>
+            <button type="button" data-categoria="niños">Ropa de niños</button>
+          </div>
+
+          <p id="resultado" aria-live="polite"></p>
+        </div>
+
+        <!-- Las tarjetas ya no se escriben a mano: render.js las genera desde datos.js -->
+        <div id="lista-productos"></div>
+
+      </section>
+
+      <section id="precios">
+        <h2>Precios y disponibilidad</h2>
+
+        <table>
+          <caption>Precios por prenda y disponibilidad</caption>
+
+          <thead>
+            <tr>
+              <th scope="col">Prenda</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Disponible</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Polera</td>
+              <td>Bs 50</td>
+              <td>S, M, L, XL</td>
+            </tr>
+
+            <tr>
+              <td>Pantalón</td>
+              <td>Bs 120</td>
+              <td>36, 38, 40, 42</td>
+            </tr>
+
+            <tr>
+              <td>Polerón</td>
+              <td>Bs 150</td>
+              <td>S, M, L, XL</td>
+            </tr>
+
+            <tr>
+              <td>Vestido</td>
+              <td>Bs 180</td>
+              <td>S, M, L</td>
+            </tr>
+
+             <tr>
+              <td>Trajes</td>
+              <td>Bs 350</td>
+              <td>S, M, L, XL</td>
+            </tr>
+             <tr>
+              <td>Chaquetas</td>
+              <td>Bs 120</td>
+              <td>S, M, L, XL</td>
+            </tr>
+             <tr>
+              <td>Pantalón femenino</td>
+              <td>Bs 180</td>
+              <td>S, M, L</td>
+            </tr>
+             <tr>
+              <td>Ropa de niños</td>
+              <td>Bs 80</td>
+              <td>S, M</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <figure>
+          <img src="vitrina1.jpg"
+               alt="Exhibición de prendas de ropa en una tienda"
+               width="600"
+               height="400">
+
+          <figcaption>
+            Algunas de nuestras prendas disponibles.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="pedido">
+        <h2>Hacer un pedido</h2>
+
+        <form action="/pedido" method="post">
+
+          <fieldset>
+            <legend>Tus datos</legend>
+
+            <p>
+              <label for="nombre">Nombre completo</label>
+              <input type="text"
+                     id="nombre"
+                     name="nombre"
+                     autocomplete="name"
+                     required>
+            </p>
+
+            <p>
+              <label for="email">Correo electrónico</label>
+              <input type="email"
+                     id="email"
+                     name="email"
+                     autocomplete="email"
+                     required>
+            </p>
+
+            <p>
+              <label for="telefono">Teléfono</label>
+              <input type="tel"
+                     id="telefono"
+                     name="telefono"
+                     autocomplete="tel"
+                     pattern="[0-9]{7,8}"
+                     title="Ingresa un número de teléfono de 7 u 8 dígitos">
+            </p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Tu compra</legend>
+
+            <p>
+              <label for="producto">Prenda</label>
+
+              <select id="producto" name="producto" required>
+                <option value="">Elige una prenda</option>
+                <option value="poleras">Poleras</option>
+                <option value="pantalon masculino">Pantalón masculino</option>
+                <option value="polerones">Polerones</option>
+                <option value="vestidos">Vestidos</option>
+                <option value="trajes">Trajes</option>
+                <option value="chaquetas">Chaquetas</option>
+                <option value="pantalon femenino">Pantalón femenino</option>
+                <option value="ropa de niños">Ropa de niños</option>
+              </select>
+            </p>
+
+            <p>
+              <label for="cantidad">Cantidad</label>
+              <input type="number" id="cantidad" name="cantidad" value="1" min="1" max="20" required>
+            </p>
+
+            <p>
+              <label for="fecha">Fecha de entrega</label>
+              <input type="date" id="fecha" name="fecha" required>
+            </p>
+
+            <button type="submit">Enviar pedido</button>
+            <p id="mensaje-pedido" role="status"></p>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Moda del Año - Ropa moderna y de calidad para todos. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="funciones.js"></script>
+    <script src="datos.js"></script>
+    <script src="render.js"></script>
+    <script src="eventos.js"></script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+ERRORES Y ARREGLOS DE TU PROYECTO (21 de octubre)
+===================================================
+
+proyecto_1_1 es tu proyecto_1 con todo arreglado. Tu carpeta proyecto_1 sigue igual, al lado.
+Abre ESTA carpeta en tu editor, con live-server, y revisa cada cambio. Si estas de acuerdo,
+haz tu commit (al final de este archivo). La guia "Depurar el render" explica cada error.
+
+1. POR QUE NO APARECIAN LAS TARJETAS
+------------------------------------
+- Los archivos se llamaban "datos (2).js" y "app (2).js" (se descargaron dos veces), pero tu
+  index pide "datos.js" y "app.js". El navegador no los encontraba (error 404).
+  -> Renombrados a datos.js y app.js.
+- Faltaba el contenedor: seguian tus 8 <article> escritos a mano y render.js no encontraba
+  <div id="lista-productos"> ("El contenedor existe: false").
+  -> Los 8 <article> se cambiaron por el <div>. Ahora las tarjetas salen de datos.js.
+- Un <center> se abria antes de la seccion de productos y se cerraba dentro de ella: el
+  navegador cortaba la seccion y las tarjetas quedaban afuera.
+  -> Quitado. Para centrar se usa CSS, no <center>.
+
+2. LAS TARJETAS AHORA TIENEN FOTO
+---------------------------------
+- datos.js: cada producto tiene una propiedad nueva, imagen ("polera1.jpg", ...).
+- render.js: crearTarjeta agrega  <img src="${producto.imagen}" alt="${producto.nombre}">.
+- estilos.css: .tarjeta img, para que todas las fotos tengan el mismo alto.
+- El septimo producto decia "poleron femenino", pero la foto, la tabla y el formulario dicen
+  pantalon femenino. -> Ahora es "pantalon femenino". Revisa que sea lo correcto.
+
+3. NOMBRES DE ARCHIVO
+---------------------
+- index.hTML -> index.html (en GitHub Pages solo funciona en minusculas).
+- Fotos sin espacios ni ñ: "vestidos 1.jpg" -> vestidos.jpg, "ropa de niños.jpg" ->
+  ropa-de-ninos.jpg, y chasquetas.jpg -> chaquetas.jpg.
+- La foto de la seccion de precios pedia "ropa.jpg", que no existe. -> Ahora usa vitrina1.jpg.
+
+4. EL HTML
+----------
+- <link rel="stylesheet" href="estilos.css"-  terminaba con "-" en vez de ">".
+- En el header: sin <center>, y el eslogan es un <p>, no un <p> dentro de un <h2>.
+- En el menu: un <li> no puede ir dentro de un <h2>, y sobraba un </ul>.
+- Un solo <h1> por pagina: "Nuestros productos" ahora es <h2>.
+- Al final faltaba cerrar </p>, </fieldset>, </form>, </section>, </main>, </body> y </html>.
+- La tabla de precios: "Bs: 50" -> "Bs 50", tallas con comas y espacios, mayusculas.
+- Nuevo <p id="aviso-stock"> en el header: ahi escribe app.js el aviso de stock. Antes
+  borraba tu eslogan.
+
+5. LOS SCRIPTS
+--------------
+- datos.js: console.log(goras...) usaba "goras" antes de crearlo -> Goras, el que creaste arriba.
+- datos.js: quedaban datos de la panaderia de la demo ("Pan del dia", "panes", "Pan de ayer",
+  "dulces", "Alfajor") -> cambiados por ropa.
+- app.js: nombres que no existian -> poleraEnVitrina, poleraDeNiños y panesEnVitrina pasaron a
+  poleraDeNiñosEnVitrina, y precioPan a precioPantalon.
+- funciones.js: panesVendidos -> prendasVendidas.
+- estilos.css: el bloque del Dia 4 estaba pegado dos veces (quedo uno), y la pagina reservaba
+  una columna para un <aside> que no tienes (quitada).
+
+6. LO QUE NO ESTA EN ESTA COPIA
+-------------------------------
+- "funciones (1).js": era la demo descargada. Tu index usa funciones.js, el tuyo.
+- Las carpetas "proyecto_1" y "proyecto_1 - copia" que estaban dentro del proyecto.
+  Siguen en tu carpeta original. Desde hoy no se copian carpetas: se hace commit.
+
+7. LO QUE TE TOCA A TI
+----------------------
+- LOS PRECIOS NO COINCIDEN entre las tarjetas (datos.js) y la tabla del index:
+      trajes             tarjeta Bs 120   tabla Bs 350
+      pantalon femenino  tarjeta Bs 120   tabla Bs 180
+      ropa de niños      tarjeta Bs 50    tabla Bs 80
+  Pregunta a tu cliente cual es el correcto y corrige el otro.
+- Tu README todavia describe otro negocio (una heladeria, Sport Center): tiene que hablar de
+  Moda del Año.
+- Tu ultimo commit es del 13 de octubre. Haz el de hoy, en Git Bash, dentro de esta carpeta:
+
+    git add .
+    git commit -m "fix: las tarjetas se generan desde los datos, con foto"
