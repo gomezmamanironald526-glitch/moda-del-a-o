@@ -24,14 +24,17 @@ function crearTarjeta(producto) {
   articulo.dataset.nombre = producto.nombre;
 
   articulo.innerHTML = `
-    <img src="${producto.imagen}" alt="${producto.nombre}">
-    <h3>${producto.nombre}</h3>
-    <p class="precio">Bs ${producto.precio.toFixed(2)}</p>
-    <p class="stock">${producto.disponible ? `${producto.stock} en stock` : "Agotado"}</p>
+    <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
+    <div class="tarjeta-cuerpo">
+      <h3>${producto.nombre}</h3>
+      <p class="precio">Bs ${producto.precio.toFixed(2)}</p>
+      <p class="stock">${producto.disponible ? `✓ ${producto.stock} en stock` : "✗ Agotado"}</p>
+    </div>
   `;
 
   return articulo;
 }
+
 
 // ── 5. RENDER: EL PATRÓN DEL MÓDULO ─────────────────────────────────────
 function render(lista) {

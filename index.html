@@ -50,6 +50,26 @@
         <p id="resultado" aria-live="polite"></p>
       </div>
 
+      <section id="panel">
+        <h2>Panel de servicio y preguntas frecuentes</h2>
+        <button type="button" id="mostrar-avisos">Mostrar avisos</button>
+        <ul id="avisos" style="display:none;"></ul>
+        <div id="acordeon">
+          <div class="item">
+            <button type="button" class="titulo" aria-expanded="false">Sección 1</button>
+            <div class="cuerpo" style="display:none;">
+              <p>Contenido de la sección 1.</p>
+            </div>
+          </div>
+          <div class="item">
+            <button type="button" class="titulo" aria-expanded="false">Sección 2</button>
+            <div class="cuerpo" style="display:none;">
+              <p>Contenido de la sección 2.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Las tarjetas ya no se escriben a mano: render.js las genera desde datos.js -->
       <div id="lista-productos"></div>
 
@@ -151,6 +171,18 @@
           </p>
         </fieldset>
 
+        <section id="remoto">
+          <h2>Catálogo del proveedor</h2>
+
+          <button type="button" id="cargar-fetch">Cargar con fetch</button>
+          <button type="button" id="cargar-jquery">Cargar con jQuery</button>
+          <button type="button" id="cargar-roto">Probar un error</button>
+
+          <p id="estado" role="status" aria-live="polite"></p>
+
+          <div id="lista-remota"></div>
+        </section>
+
         <fieldset>
           <legend>Tu compra</legend>
 
@@ -186,33 +218,14 @@
       </form>
     </section>
 
-    <section id="comparacion">
-      <h2>Comparación: JavaScript Vanilla vs jQuery</h2>
-      <p>Pruebas interactivas que demuestran la diferencia entre JavaScript Vanilla y la librería jQuery manipulando el
-        DOM:</p>
 
-      <div class="comparacion-cuadricula">
-        <div class="comparacion-caja">
-          <h3>JavaScript Vanilla</h3>
-          <p>Manipulación directa con la API estándar del navegador.</p>
-          <button type="button" id="boton-vanilla">Alternar con Vanilla</button>
-          <p id="salida-vanilla" class="resultado">Texto inicial Vanilla</p>
-        </div>
 
-        <div class="comparacion-caja">
-          <h3>Librería jQuery</h3>
-          <p>Manipulación simplificada con sintaxis <code>$()</code> y encadenamiento.</p>
-          <button type="button" id="boton-jquery">Alternar con jQuery</button>
-          <p id="salida-jquery" class="resultado">Texto inicial jQuery</p>
-        </div>
-      </div>
-    </section>
+
+
   </main>
 
   <footer>
-    <center>
-      <p>&copy; 2026 Moda del Año - Ropa moderna y de calidad para todos. Todos los derechos reservados.</p>
-    </center>
+    <p>&copy; 2026 Moda del Año - Ropa moderna y de calidad para todos. Todos los derechos reservados.</p>
   </footer>
 
   <script src="jquery-3.7.1.min.js"></script>
@@ -223,6 +236,7 @@
   <script src="eventos.js"></script>
 
   <script src="jquery-panel.js"></script>
+  <script src="remoto.js"></script>
 </body>
 
 </html>

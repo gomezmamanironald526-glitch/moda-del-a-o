@@ -1,0 +1,81 @@
+{
+  "negocio": {
+    "nombre": "Moda del Año - Proveedor",
+    "ruc": "1234567890",
+    "ciudad": "La Paz, Bolivia"
+  },
+  "productos": [
+    {
+      "nombre": "Polera Clásica",
+      "precio": 50,
+      "categoria": "poleras",
+      "unidad": "unidad",
+      "stock": 40,
+      "disponible": true,
+      "imagen": "polera1.jpg"
+    },
+    {
+      "nombre": "Pantalón Masculino",
+      "precio": 120,
+      "categoria": "pantalon masculino",
+      "unidad": "unidad",
+      "stock": 25,
+      "disponible": true,
+      "imagen": "pantalon.jpg"
+    },
+    {
+      "nombre": "Polerón de Invierno",
+      "precio": 150,
+      "categoria": "polerones",
+      "unidad": "unidad",
+      "stock": 8,
+      "disponible": true,
+      "imagen": "poleron1.jpg"
+    },
+    {
+      "nombre": "Vestido de Gala",
+      "precio": 180,
+      "categoria": "vestidos",
+      "unidad": "unidad",
+      "stock": 0,
+      "disponible": false,
+      "imagen": "vestidos.jpg"
+    },
+    {
+      "nombre": "Traje Formal",
+      "precio": 350,
+      "categoria": "trajes",
+      "unidad": "unidad",
+      "stock": 30,
+      "disponible": true,
+      "imagen": "trajes.jpg"
+    },
+    {
+      "nombre": "Chaqueta Deportiva",
+      "precio": 120,
+      "categoria": "chaquetas",
+      "unidad": "unidad",
+      "stock": 2,
+      "disponible": true,
+      "imagen": "chaquetas.jpg"
+    },
+    {
+      "nombre": "Pantalón Femenino",
+      "precio": 180,
+      "categoria": "pantalon femenino",
+      "unidad": "unidad",
+      "stock": 50,
+      "disponible": true,
+      "imagen": "pantalonfemenino.jpg"
+    },
+    {
+      "nombre": "Ropa de Niños",
+      "precio": 80,
+      "categoria": "niños",
+      "unidad": "conjunto",
+      "stock": 100,
+      "disponible": true,
+      "imagen": "ropa-de-ninos.jpg"
+    }
+  ]
+}
