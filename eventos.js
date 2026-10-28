@@ -6,6 +6,7 @@ const formulario = document.querySelector("form");
 
 let categoriaActiva = "todos";
 let textoBuscado = "";
+let ordenActual = "nombre";
 
 // ── 2. UNA SOLA FUNCIÓN QUE DECIDE QUÉ MOSTRAR ──────────────────────────
 // Función auxiliar para búsqueda sin importar tildes ni mayúsculas
@@ -21,7 +22,13 @@ function actualizar() {
   const termino = normalizar(textoBuscado);
   const visibles = productos
     .filter(p => categoriaActiva === "todos" || p.categoria === categoriaActiva)
-    .filter(p => normalizar(p.nombre).includes(termino) || normalizar(p.categoria).includes(termino));
+    .filter(p => normalizar(p.nombre).includes(termino) || normalizar(p.categoria).includes(termino))
+    .sort((a, b) => {
+      if (ordenActual === "precio-asc") return a.precio - b.precio;
+      if (ordenActual === "precio-desc") return b.precio - a.precio;
+      if (ordenActual === "stock") return b.stock - a.stock;
+      return a.nombre.localeCompare(b.nombre, "es");
+    });
 
   render(visibles);
   if (resultado) {
@@ -30,6 +37,11 @@ function actualizar() {
 }
 
 actualizar();
+
+document.addEventListener("preferencias:cambiadas", (event) => {
+  ordenActual = event.detail.orden;
+  actualizar();
+});
 
 // ── 3. EL EVENTO input ──────────────────────────────────────────────────
 if (buscador) {

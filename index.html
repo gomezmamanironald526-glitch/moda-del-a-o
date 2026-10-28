@@ -170,6 +170,33 @@
               title="Ingresa un número de teléfono de 7 u 8 dígitos">
           </p>
         </fieldset>
+        <!-- ── ZONA DEL DÍA 13: LA PÁGINA RECUERDA ──────────────────────── -->
+        <section id="preferencias">
+          <h2>Tus preferencias</h2>
+
+          <button type="button" id="tema-toggle" aria-pressed="false">Modo oscuro</button>
+
+          <label for="orden">Ordenar por</label>
+          <select id="orden">
+            <option value="nombre">Nombre</option>
+            <option value="precio-asc">Menor precio</option>
+            <option value="precio-desc">Mayor precio</option>
+            <option value="stock">Mayor disponibilidad</option>
+          </select>
+
+          <button type="button" id="olvidar">Olvidar mis preferencias</button>
+
+          <p id="estado-prefs" role="status" aria-live="polite"></p>
+        </section>
+
+        <!-- ── ZONA DEL DÍA 13: DÓNDE ESTÁ EL USUARIO ───────────────────── -->
+        <section id="ubicacion">
+          <h2>¿Estás cerca?</h2>
+          <p>Calculamos una distancia aproximada hasta el centro de La Paz. Tu ubicación no sale de tu navegador.</p>
+
+          <button type="button" id="ubicarme">Calcular mi distancia</button>
+          <p id="estado-ubicacion" role="status" aria-live="polite"></p>
+        </section>
 
         <section id="remoto">
           <h2>Catálogo del proveedor</h2>
@@ -234,7 +261,7 @@
   <script src="datos.js"></script>
   <script src="render.js"></script>
   <script src="eventos.js"></script>
-
+  <script src="preferencias.js"></script>
   <script src="jquery-panel.js"></script>
   <script src="remoto.js"></script>
 </body>

@@ -48,6 +48,19 @@
   --trans: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+body.tema-oscuro {
+  --color-principal: #f3f4f6;
+  --color-fondo: #17191f;
+  --color-superficie: #22252d;
+  --color-superficie2: #2b2f39;
+  --color-texto: #f3f4f6;
+  --color-texto-suave: #b6bcc8;
+  --borde: #3c414d;
+  --sombra-sm: 0 1px 3px rgba(0, 0, 0, 0.24);
+  --sombra: 0 4px 16px rgba(0, 0, 0, 0.28);
+  --sombra-lg: 0 10px 40px rgba(0, 0, 0, 0.36);
+}
+
 /* ── 3. BASE ──────────────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
@@ -370,8 +383,8 @@ section h2::after {
 
 /* ── 13. PANEL (acordeón y avisos) ───────────────────────────────────────── */
 #panel {
-  background: #f8f8fc;
-  border: 1px solid #e8e8f0;
+  background: var(--color-superficie2);
+  border: 1px solid var(--borde);
   border-radius: var(--radio-lg);
   padding: var(--espacio-lg);
   margin-bottom: var(--espacio-lg);
@@ -392,7 +405,7 @@ section h2::after {
   border-radius: var(--radio);
   margin-bottom: 0.4rem;
   overflow: hidden;
-  background: #fff;
+  background: var(--color-superficie);
 }
 
 #acordeon .titulo {
@@ -447,7 +460,7 @@ section h2::after {
 }
 
 #avisos li {
-  background: #fff;
+  background: var(--color-superficie);
   border-left: 3px solid var(--color-acento);
   padding: 0.55rem 0.9rem;
   margin-bottom: 0.4rem;
@@ -585,7 +598,7 @@ textarea {
   width: 100%;
   border: 2px solid var(--borde);
   border-radius: var(--radio);
-  background: #fff;
+  background: var(--color-superficie);
   color: var(--color-texto);
   transition: border-color var(--trans), box-shadow var(--trans);
   outline: none;
@@ -619,9 +632,10 @@ button[type="submit"]:hover {
 }
 
 /* ── 17. SECCIÓN REMOTA ───────────────────────────────────────────────────── */
-.seccion-remota {
-  background: linear-gradient(135deg, #fafafa 0%, #f0f0f8 100%);
-  border: 2px dashed #d1d5db;
+.seccion-remota,
+#remoto {
+  background: linear-gradient(135deg, var(--color-superficie2), var(--color-fondo));
+  border: 2px dashed var(--borde);
   border-radius: var(--radio-xl);
   padding: var(--espacio-xl);
   margin-top: var(--espacio-xl);
@@ -932,4 +946,43 @@ footer {
 
   h1 { font-size: 1.8rem; }
   h2 { font-size: 1.3rem; }
+
+.tema-oscuro {
+  --color-principal:  #7fb3e0;
+  --color-acento:     #e88a5c;
+  --color-texto:      #e6edf3;
+  --color-suave:      #9aa8b4;
+  --color-fondo:      #16202a;
+  --color-superficie: #1e2b38;
+  --borde:            #33465a;
+}
+
+/* El texto blanco de botones y encabezados de tabla no se lee sobre el azul
+   claro del tema oscuro: ahí se escribe con el color del fondo. */
+body { transition: background-color .25s, color .25s; }
+.tema-oscuro button, .tema-oscuro th { color: var(--color-fondo); }
+.tema-oscuro #filtros button.activo { color: var(--color-fondo); }
+
+/* El error tiene su propio color de fondo fijo, que sobre oscuro no se lee.
+   Es el tipo de detalle que solo aparece al probar el tema de verdad. */
+.tema-oscuro .error {
+  background: #3a1d14;
+  color: #f0b9a4;
+}
+
+#preferencias, #ubicacion { margin-top: var(--espacio-lg); }
+#preferencias button, #ubicacion button { margin-right: 0.5rem; }
+#preferencias label { display: inline; margin-right: 0.4rem; }
+#preferencias select { width: auto; display: inline-block; }
+
+/* aria-pressed es el atributo correcto para un botón que alterna un estado.
+   Igual que en el acordeón: el estilo se genera del atributo, así no se
+   pueden desincronizar. */
+#tema-toggle[aria-pressed="true"] {
+  background: var(--color-acento);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body { transition: none; }
+}
 }
